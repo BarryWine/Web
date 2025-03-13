@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Navbar & Smooth Scroll</title>
+    <!-- Google Fonts untuk tampilan modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        /* Reset & Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px 40px;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 30px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #007bff;
+        }
+
+        /* Section Styling */
+        section {
+            min-height: 100vh;
+            padding: 100px 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Tampilan tiap section */
+        #home {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+
+        #about {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        #services {
+            background: #fff;
+            color: #333;
+        }
+
+        #contact {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* Konten Section */
+        .section-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .section-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-content p {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">MyModernSite</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Sections -->
+    <section id="home">
+        <div class="section-content">
+            <h2>Welcome to My Modern Website</h2>
+            <p>Enjoy smooth scrolling and a clean, modern interface.</p>
+        </div>
+    </section>
+    <section id="about">
+        <div class="section-content">
+            <h2>About Us</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+                interdum erat at libero laoreet, at blandit ligula faucibus.
+            </p>
+        </div>
+    </section>
+    <section id="services">
+        <div class="section-content">
+            <h2>Our Services</h2>
+            <p>
+                We offer a variety of services designed to meet your needs. Explore our
+                solutions for a better experience.
+            </p>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="section-content">
+            <h2>Contact Us</h2>
+            <p>
+                Feel free to get in touch with us for any inquiries or further
+                information.
+            </p>
+        </div>
+    </section>
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+
+</html>
